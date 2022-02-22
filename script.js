@@ -1,5 +1,18 @@
+// Variables
+
+const farmerNorth = document.querySelector("#farmer-north");
+const wolfNorth = document.querySelector("#wolf-north");
+const goatNorth = document.querySelector("#goat-north");
+const boatNorth = document.querySelector("#boat-north");
+
+const farmerSouth = document.querySelector("#farmer-south");
+const wolfSouth = document.querySelector("#wolf-south");
+const goatSouth = document.querySelector("#goat-south");
+const boatSouth = document.querySelector("#boat-south");
+
 // There is a farmer who wishes to cross a river but he is not alone.
 // He also has a goat, a wolf, and a cabbage along with him.
+
 // There is only one boat available which can support the farmer and either of the goat, wolf or the cabbage. So at a time, the boat can have only two objects (farmer and one other).
 // If the goat and wolf are left alone (either in the boat or onshore), the wolf will eat the goat.
 // Similarly, if the Goat and cabbage are left alone, then goat will eat the cabbage.

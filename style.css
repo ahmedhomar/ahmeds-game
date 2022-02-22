@@ -3,6 +3,25 @@ body {
   margin: 0;
 }
 
+.north-bank {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-flow: column wrap;
+}
+
+#riverbank-north {
+  background: url(no-dimensions-or-ratio.svg);
+  background-size: contain;
+}
+
+.south-bank {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-flow: column wrap;
+}
+
 h1 {
   font-family: "Lato", sans-serif;
   font-weight: 300;
