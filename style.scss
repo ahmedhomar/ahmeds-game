@@ -18,6 +18,10 @@ body {
   flex-flow: column wrap;
 }
 
+#wolf-north:active {
+  background-color: yellow;
+}
+
 h1 {
   font-family: "Lato", sans-serif;
   font-weight: 300;

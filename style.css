@@ -10,16 +10,15 @@ body {
   flex-flow: column wrap;
 }
 
-#riverbank-north {
-  background: url(no-dimensions-or-ratio.svg);
-  background-size: contain;
-}
-
 .south-bank {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
   flex-flow: column wrap;
+}
+
+#wolf-north:active {
+  background-color: yellow;
 }
 
 h1 {
