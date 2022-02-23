@@ -18,8 +18,10 @@ body {
   flex-flow: column wrap;
 }
 
-#wolf-north:active {
-  background-color: yellow;
+#riverbank-north {
+  background-color: orange;
+  border-style: 20px solid transparent;
+  border-radius: 50%;
 }
 
 h1 {
@@ -44,13 +46,6 @@ p {
     rgba(0, 172, 193, 1) 100%
   );
   color: white;
-}
-.logo {
-  width: 50px;
-  fill: white;
-  padding-right: 15px;
-  display: inline-block;
-  vertical-align: middle;
 }
 
 .inner-header {

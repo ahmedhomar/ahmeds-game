@@ -38,7 +38,12 @@ goatNorth.addEventListener("click", (e) => {
 pumpkinNorth.addEventListener("click", (e) => {
   console.log("pumpkin has gone!");
   northBankArray.push("pumpkin");
-  return (pumpkinNorth.innerHTML = "");
+  pumpkinNorth.innerHTML = "";
+  return (pumpkinSouth.innerHTML = `
+  <figure id="pumpkin-north">
+      <img src="./images/pumpkin-1.svg"/>
+      <figcaption>Pumpkin</figcaption>
+  </figure>`);
 });
 
 boatNorth.addEventListener("click", (e) => {
@@ -51,6 +56,8 @@ boatNorth.addEventListener("click", (e) => {
     console.log("nothing is happening");
   }
 });
+
+// Event handlers
 
 // There is a farmer who wishes to cross a river but he is not alone.
 // He also has a goat, a wolf, and a cabbage along with him.
@@ -69,6 +76,7 @@ boatNorth.addEventListener("click", (e) => {
 // goat and cabbage together on the boat: game over
 // more than three "objects" in the boat: boat sinks => game over
 // more then 7 trips: boat sinks => game over
+// player should be able to change their mind about objects loaded on boat. (perhaps a clear/undo button)
 
 // How to play:
 // choose "objects" to take on the boat: all options include farmer as one object
