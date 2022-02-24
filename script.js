@@ -35,7 +35,7 @@ goatNorth.addEventListener("click", (e) => {
   return (goatNorth.innerHTML = "");
 });
 
-pumpkinNorth.addEventListener("click", (e) => {
+pumpkinNorth.addEventListener("click", () => {
   console.log("pumpkin has gone!");
   northBankArray.push("pumpkin");
   pumpkinNorth.innerHTML = "";
@@ -46,15 +46,22 @@ pumpkinNorth.addEventListener("click", (e) => {
   </figure>`);
 });
 
-boatNorth.addEventListener("click", (e) => {
-  if (northBankArray.length <= 2) {
-    console.log("This ship has sailed!");
-    return (boatNorth.innerHTML = "");
-  } else if (northBankArray.length >= 3) {
-    alert("Not enough room in the boat!");
-  } else {
-    console.log("nothing is happening");
-  }
+boatNorth.addEventListener("click", () => {
+  // if (northBankArray.length <= 2) {
+  //   console.log("This ship has sailed!");
+  //   return (boatNorth.innerHTML = "");
+  // } else if (northBankArray.length >= 3) {
+  //   alert("Not enough room in the boat!");
+  // } else {
+  //   console.log("nothing is happening");
+  // }
+  anime({
+    targets: boatNorth,
+    translateX: 1500,
+    direction: "alternate",
+    loop: false,
+    easing: "steps(20)",
+  });
 });
 
 // Event handlers
@@ -91,3 +98,40 @@ boatNorth.addEventListener("click", (e) => {
 // So now on one side, we have farmer, cabbage, and goat and on the other side, we have a wolf.
 // Now, he takes the cabbage along and returns alone. So now the scenario is: farmer, goat on one side and wolf, cabbage on the other side.
 // Now, finally, he crosses the river with the goat and hence succeeds in taking all his belongings with him.
+
+// Tips from Dan on clean coding
+
+// your code
+// decimalButton.addEventListener("click", (e) => {
+//   decimalString = e.target.value;
+
+//   if(!currentString.includes('.')) {
+//     currentString += '.'
+//   } else{
+//     return currentString;
+//    }
+
+// });
+
+// refactor this to reference a separate function
+// const handleDecimalPress = (e) => {
+//   decimalString = e.target.value;
+//   if (!currentString.includes('.')) {
+//     currentString += '.'
+//   } else {
+//     return currentString;
+//   }
+// }
+
+// decimalButton.addEventListener("click", handleDecimalPress);
+// Now that decimal press logic has been abstracted into it’s own function, we can look at refactoring it a bit! Remember functions should only do one thing, in this case we add a decimal place to the current string if we’re allowed. So we actually don’t need that else or return inside it:
+// remove decimal string, it's already "."
+// remove unused "e" parameter
+// remove else statement
+// const handleDecimalPress = () => {
+//   if (!currentString.includes('.')) {
+//     currentString += '.'
+//   }
+// }
+
+// decimalButton.addEventListener("click", handleDecimalPress);

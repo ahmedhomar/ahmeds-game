@@ -5,6 +5,7 @@ body {
 }
 
 .north-bank {
+  cursor: pointer;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
@@ -12,6 +13,7 @@ body {
 }
 
 .south-bank {
+  cursor: pointer;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
@@ -19,9 +21,22 @@ body {
 }
 
 #riverbank-north {
-  background-color: orange;
+  background-color: blanchedalmond;
   border-style: 20px solid transparent;
   border-radius: 50%;
+
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px;
+}
+#riverbank-south {
+  background-color: blanchedalmond;
+  border-style: 20px solid transparent;
+  border-radius: 50%;
+
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px;
 }
 
 h1 {

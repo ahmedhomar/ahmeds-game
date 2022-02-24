@@ -1,0 +1,24 @@
+{
+  "name": "ahmeds-game",
+  "version": "1.0.0",
+  "description": "This my repo for a browser based game that I designed and coded using HTML, CSS and JS; as part of the Nology Course.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedhomar/ahmeds-game.git"
+  },
+  "keywords": [],
+  "author": "Ahmed Omar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmedhomar/ahmeds-game/issues"
+  },
+  "homepage": "https://github.com/ahmedhomar/ahmeds-game#readme",
+  "devDependencies": {
+    "animejs": "^3.2.1",
+    "type": "module"
+  }
+}
