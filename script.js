@@ -26,6 +26,7 @@ farmerNorth.addEventListener("click", (e) => {
 wolfNorth.addEventListener("click", (e) => {
   console.log("No wolf!");
   northBankArray.push("wolf");
+
   return (wolfNorth.innerHTML = "");
 });
 
@@ -47,14 +48,14 @@ pumpkinNorth.addEventListener("click", () => {
 });
 
 boatNorth.addEventListener("click", () => {
-  // if (northBankArray.length <= 2) {
-  //   console.log("This ship has sailed!");
-  //   return (boatNorth.innerHTML = "");
-  // } else if (northBankArray.length >= 3) {
-  //   alert("Not enough room in the boat!");
-  // } else {
-  //   console.log("nothing is happening");
-  // }
+  if (northBankArray.length <= 2) {
+    console.log("This ship has sailed!");
+    return (boatNorth.innerHTML = "");
+  } else if (northBankArray.length >= 3) {
+    alert("Not enough room in the boat!");
+  } else {
+    console.log("nothing is happening");
+  }
   anime({
     targets: boatNorth,
     translateX: 1500,
@@ -63,6 +64,22 @@ boatNorth.addEventListener("click", () => {
     easing: "steps(20)",
   });
 });
+
+// let currentPlayer = 1;
+
+// const updateCurrentPlayer = () => {
+//   if (currentPlayer === 1) {
+//     currentPlayer = 2;
+//   } else {
+//     currentPlayer = 1;
+//   }
+// };
+
+// const getNextPlayer = (currentPlayer) => {
+//   return currentPlayer === 1 ? 2 : 1;
+// };
+// const activePlayer = 1;
+// const nextPlayer = getNextPlayer(activePlayer);
 
 // Event handlers
 
