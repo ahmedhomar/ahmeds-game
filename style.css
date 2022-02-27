@@ -1,22 +1,12 @@
-@import url(//fonts.googleapis.com/css?family=Lato:300:400);
+@import url(//fonts.googleapis.com/css?family=Ubuntu:300:400);
 body {
   margin: 0;
 }
 
-.north-bank {
+.riverbanks {
   cursor: pointer;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  flex-flow: column wrap;
-}
-
-.south-bank {
-  cursor: pointer;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  flex-flow: column wrap;
+  justify-content: space-between;
 }
 
 h1 {
