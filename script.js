@@ -30,6 +30,13 @@ wolfNorth.addEventListener("click", () => {
 });
 
 goatNorth.addEventListener("click", () => {
+  // anime({
+  //   targets: goatNorth,
+  //   translateX: 1000,
+  //   direction: "alternate",
+  //   loop: false,
+  //   easing: "steps(20)",
+  // });
   console.log("Goat has gone!");
   tripsTaken.innerHTML += "* ";
   goatNorth.innerHTML = "";
@@ -89,8 +96,6 @@ pumpkinSouth.addEventListener("click", () => {
   } else {
   }
 });
-
-tripCounter();
 
 // boatNorth.addEventListener("click", () => {
 //   anime({
