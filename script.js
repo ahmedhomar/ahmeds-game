@@ -11,7 +11,6 @@ const pumpkinSouth = document.querySelector("#pumpkin-south");
 let tripsTaken = document.querySelector("#trips");
 // const northBankArray = [];
 // const SouthBankArray = [];
-let tripCounter = 0;
 
 // Functions
 
@@ -21,7 +20,11 @@ wolfNorth.addEventListener("click", () => {
   wolfNorth.innerHTML = "";
   wolfSouth.innerHTML = `<img src="./images/wolf-1.svg" />`;
   if (goatNorth.innerHTML && pumpkinNorth.innerHTML != "") {
-    return alert(`GAME OVER:Pumpkin eaten by goat!`);
+    return alert(`GAME OVER:pumpkin eaten by the goat!`);
+  } else {
+  }
+  if (tripsTaken.innerHTML >= "* * * * * * * *") {
+    return alert(`GAME OVER: exceeded 7 trips!`);
   } else {
   }
 });
@@ -30,15 +33,64 @@ goatNorth.addEventListener("click", () => {
   console.log("Goat has gone!");
   tripsTaken.innerHTML += "* ";
   goatNorth.innerHTML = "";
-  return (goatSouth.innerHTML = `<img src="./images/sheep.svg" />`);
+  goatSouth.innerHTML = `<img src="./images/sheep.svg" />`;
+  if (wolfNorth.innerHTML != "" && pumpkinNorth.innerHTML === "") {
+    return alert(`GAME OVER:pumpkin eaten by the goat!`);
+  } else {
+  }
+  if (tripsTaken.innerHTML >= "* * * * * * * *") {
+    return alert(`GAME OVER: exceeded 7 trips!`);
+  } else {
+  }
 });
 
 pumpkinNorth.addEventListener("click", () => {
   console.log("pumpkin has gone!");
   tripsTaken.innerHTML += "* ";
   pumpkinNorth.innerHTML = "";
-  return (pumpkinSouth.innerHTML = `<img src="./images/pumpkin-1.svg"/>`);
+  pumpkinSouth.innerHTML = `<img src="./images/pumpkin-1.svg"/>`;
+  if (goatNorth.innerHTML && wolfNorth.innerHTML != "") {
+    return alert(`GAME OVER:goat eaten by the wolf!`);
+  } else if (goatNorth.innerHTML === "" && wolfNorth.innerHTML != "") {
+    return alert(`GAME OVER:pumpkin eaten by the goat!`);
+  } else {
+  }
+  if (tripsTaken.innerHTML >= "* * * * * * * *") {
+    return alert(`GAME OVER: exceeded 7 trips!`);
+  } else {
+  }
 });
+
+wolfSouth.addEventListener("click", () => {
+  console.log("No south wolf!");
+  tripsTaken.innerHTML += "* ";
+  wolfSouth.innerHTML = "";
+  wolfNorth.innerHTML = `<img src="./images/wolf-1.svg" />`;
+  if (goatSouth.innerHTML && pumpkinSouth.innerHTML != "") {
+    return alert(`GAME OVER:pumpkin eaten by the goat!`);
+  } else {
+  }
+});
+
+goatSouth.addEventListener("click", () => {
+  console.log("Goat has gone!");
+  tripsTaken.innerHTML += "* ";
+  goatSouth.innerHTML = "";
+  return (goatNorth.innerHTML = `<img src="./images/sheep.svg" />`);
+});
+
+pumpkinSouth.addEventListener("click", () => {
+  console.log("pumpkin has gone!");
+  tripsTaken.innerHTML += "* ";
+  pumpkinSouth.innerHTML = "";
+  pumpkinNorth.innerHTML = `<img src="./images/pumpkin-1.svg"/>`;
+  if (goatSouth.innerHTML && wolfSouth.innerHTML != "") {
+    return alert(`GAME OVER:goat eaten by the wolf!`);
+  } else {
+  }
+});
+
+tripCounter();
 
 // boatNorth.addEventListener("click", () => {
 //   anime({
