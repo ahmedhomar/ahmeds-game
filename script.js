@@ -1,3 +1,5 @@
+// import anime from "./node_modules/animejs/lib/anime.min.js";
+
 // Variables
 
 const wolfNorth = document.querySelector("#wolf-north");
@@ -23,6 +25,17 @@ const checkPuzzleSolved = () => {
   );
 };
 
+// const addAnime = () => {
+//   console.log("anime function ran");
+//   return anime({
+//     targets: goatNorth,
+//     translateX: 1000,
+//     direction: "alternate",
+//     loop: false,
+//     easing: "steps(20)",
+//   });
+// };
+
 // When wolf is on the North Bank
 wolfNorth.addEventListener("click", () => {
   console.log("No wolf!");
@@ -30,13 +43,13 @@ wolfNorth.addEventListener("click", () => {
   wolfNorth.innerHTML = "";
   wolfSouth.innerHTML = `<img src="./images/wolf-1.svg" />`;
   if (checkPuzzleSolved()) {
-    return alert("Congratulations: you solved it!");
+    return alert("🎉 Congratulations: you solved it!");
   }
   if (goatNorth.innerHTML != "" && pumpkinNorth.innerHTML != "") {
-    return alert(`GAME OVER:pumpkin eaten by the goat!`);
+    return alert("🛑 GAME OVER:🎃 eaten by the 🐐!");
   }
   if (tripsTaken.innerHTML >= "* * * * * * * *") {
-    return alert(`GAME OVER: exceeded 7 trips!`);
+    return alert("⛔️ GAME OVER: exceeded 7 trips!");
   }
 });
 
@@ -48,34 +61,28 @@ wolfSouth.addEventListener("click", () => {
   wolfSouth.innerHTML = "";
   wolfNorth.innerHTML = `<img src="./images/wolf-1.svg" />`;
   if (checkPuzzleSolved()) {
-    return alert("Congratulations: you solved it!");
+    return alert("🎉 Congratulations: you solved it!");
   }
   if (goatSouth.innerHTML != "" && pumpkinSouth.innerHTML != "") {
-    return alert(`GAME OVER:pumpkin eaten by the goat!`);
+    return alert("🛑 GAME OVER:🎃 eaten by the 🐐!");
+  }
+  if (tripsTaken.innerHTML >= "* * * * * * * *") {
+    return alert("⛔️ GAME OVER: exceeded 7 trips!");
   }
 });
 
 // When goat is on the North Bank
 goatNorth.addEventListener("click", () => {
-  // anime({
-  //   targets: goatNorth,
-  //   translateX: 1000,
-  //   direction: "alternate",
-  //   loop: false,
-  //   easing: "steps(20)",
-  // });
   console.log("Goat has gone!");
   tripsTaken.innerHTML += "* ";
   goatNorth.innerHTML = "";
   goatSouth.innerHTML = `<img src="./images/sheep.svg" />`;
   if (checkPuzzleSolved()) {
-    return alert("Congratulations: you solved it!");
+    return alert("🎉 Congratulations: you solved it!");
   }
-  // if (wolfNorth.innerHTML != "" && pumpkinNorth.innerHTML === "") {
-  //   return alert(`GAME OVER:pumpkin eaten by the goat!`);
-  // }
+
   if (tripsTaken.innerHTML >= "* * * * * * * *") {
-    return alert(`GAME OVER: exceeded 7 trips!`);
+    return alert("⛔️ GAME OVER: exceeded 7 trips!");
   }
 });
 
@@ -86,13 +93,11 @@ goatSouth.addEventListener("click", () => {
   goatSouth.innerHTML = "";
   goatNorth.innerHTML = `<img src="./images/sheep.svg" />`;
   if (checkPuzzleSolved()) {
-    return alert("Congratulations: you solved it!");
+    return alert("🎉 Congratulations: you solved it!");
   }
-  if (wolfSouth.innerHTML === "" && pumpkinSouth.innerHTML != "") {
-    return alert(`GAME OVER: Goat eaten by the wolf!`);
-  }
+
   if (tripsTaken.innerHTML >= "* * * * * * * *") {
-    return alert(`GAME OVER: exceeded 7 trips!`);
+    return alert("⛔️ GAME OVER: exceeded 7 trips!");
   }
 });
 
@@ -107,12 +112,11 @@ pumpkinNorth.addEventListener("click", () => {
     return alert("Congratulations: you solved it!");
   }
   if (goatNorth.innerHTML != "" && wolfNorth.innerHTML != "") {
-    return alert(`GAME OVER:goat eaten by the wolf!`);
-  } else if (goatNorth.innerHTML === "" && wolfNorth.innerHTML != "") {
-    return alert(`GAME OVER:pumpkin eaten by the goat!`);
+    return alert("🛑 GAME OVER: 🐐 eaten by the 🐺");
   }
+
   if (tripsTaken.innerHTML >= "* * * * * * * *") {
-    return alert(`GAME OVER: exceeded 7 trips!`);
+    return alert("⛔️ GAME OVER: exceeded 7 trips!");
   }
 });
 
@@ -123,10 +127,13 @@ pumpkinSouth.addEventListener("click", () => {
   pumpkinSouth.innerHTML = "";
   pumpkinNorth.innerHTML = `<img src="./images/pumpkin-1.svg"/>`;
   if (checkPuzzleSolved()) {
-    return alert("Congratulations: you solved it!");
+    return alert("🎉 Congratulations: you solved it!");
   }
-  if (goatNorth.innerHTML != "" && wolfSouth.innerHTML != "") {
-    return alert(`GAME OVER:goat eaten by the wolf!`);
+  if (goatSouth.innerHTML != "" && wolfSouth.innerHTML != "") {
+    return alert(`🛑 GAME OVER: 🐐 eaten by the 🐺`);
+  }
+  if (tripsTaken.innerHTML >= "* * * * * * * *") {
+    return alert("⛔️ GAME OVER: exceeded 7 trips!");
   }
 });
 
