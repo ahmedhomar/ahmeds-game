@@ -14,21 +14,48 @@ let tripsTaken = document.querySelector("#trips");
 
 // Functions
 
+const checkPuzzleSolved = () => {
+  console.log("puzzle solved function");
+  return (
+    goatNorth.innerHTML === "" &&
+    wolfNorth.innerHTML === "" &&
+    pumpkinNorth.innerHTML === ""
+  );
+};
+
+// When wolf is on the North Bank
 wolfNorth.addEventListener("click", () => {
   console.log("No wolf!");
   tripsTaken.innerHTML += "* ";
   wolfNorth.innerHTML = "";
   wolfSouth.innerHTML = `<img src="./images/wolf-1.svg" />`;
-  if (goatNorth.innerHTML && pumpkinNorth.innerHTML != "") {
+  if (checkPuzzleSolved()) {
+    return alert("Congratulations: you solved it!");
+  }
+  if (goatNorth.innerHTML != "" && pumpkinNorth.innerHTML != "") {
     return alert(`GAME OVER:pumpkin eaten by the goat!`);
-  } else {
   }
   if (tripsTaken.innerHTML >= "* * * * * * * *") {
     return alert(`GAME OVER: exceeded 7 trips!`);
-  } else {
   }
 });
 
+// When wolf is on the South Bank
+
+wolfSouth.addEventListener("click", () => {
+  console.log("No south wolf!");
+  tripsTaken.innerHTML += "* ";
+  wolfSouth.innerHTML = "";
+  wolfNorth.innerHTML = `<img src="./images/wolf-1.svg" />`;
+  if (checkPuzzleSolved()) {
+    return alert("Congratulations: you solved it!");
+  }
+  if (goatSouth.innerHTML != "" && pumpkinSouth.innerHTML != "") {
+    return alert(`GAME OVER:pumpkin eaten by the goat!`);
+  }
+});
+
+// When goat is on the North Bank
 goatNorth.addEventListener("click", () => {
   // anime({
   //   targets: goatNorth,
@@ -41,59 +68,65 @@ goatNorth.addEventListener("click", () => {
   tripsTaken.innerHTML += "* ";
   goatNorth.innerHTML = "";
   goatSouth.innerHTML = `<img src="./images/sheep.svg" />`;
-  if (wolfNorth.innerHTML != "" && pumpkinNorth.innerHTML === "") {
-    return alert(`GAME OVER:pumpkin eaten by the goat!`);
-  } else {
+  if (checkPuzzleSolved()) {
+    return alert("Congratulations: you solved it!");
+  }
+  // if (wolfNorth.innerHTML != "" && pumpkinNorth.innerHTML === "") {
+  //   return alert(`GAME OVER:pumpkin eaten by the goat!`);
+  // }
+  if (tripsTaken.innerHTML >= "* * * * * * * *") {
+    return alert(`GAME OVER: exceeded 7 trips!`);
+  }
+});
+
+// When goat is on the South Bank
+goatSouth.addEventListener("click", () => {
+  console.log("Goat has gone!");
+  tripsTaken.innerHTML += "* ";
+  goatSouth.innerHTML = "";
+  goatNorth.innerHTML = `<img src="./images/sheep.svg" />`;
+  if (checkPuzzleSolved()) {
+    return alert("Congratulations: you solved it!");
+  }
+  if (wolfSouth.innerHTML === "" && pumpkinSouth.innerHTML != "") {
+    return alert(`GAME OVER: Goat eaten by the wolf!`);
   }
   if (tripsTaken.innerHTML >= "* * * * * * * *") {
     return alert(`GAME OVER: exceeded 7 trips!`);
-  } else {
   }
 });
+
+// When pumpkin is on the North Bank
 
 pumpkinNorth.addEventListener("click", () => {
   console.log("pumpkin has gone!");
   tripsTaken.innerHTML += "* ";
   pumpkinNorth.innerHTML = "";
   pumpkinSouth.innerHTML = `<img src="./images/pumpkin-1.svg"/>`;
-  if (goatNorth.innerHTML && wolfNorth.innerHTML != "") {
+  if (checkPuzzleSolved()) {
+    return alert("Congratulations: you solved it!");
+  }
+  if (goatNorth.innerHTML != "" && wolfNorth.innerHTML != "") {
     return alert(`GAME OVER:goat eaten by the wolf!`);
   } else if (goatNorth.innerHTML === "" && wolfNorth.innerHTML != "") {
     return alert(`GAME OVER:pumpkin eaten by the goat!`);
-  } else {
   }
   if (tripsTaken.innerHTML >= "* * * * * * * *") {
     return alert(`GAME OVER: exceeded 7 trips!`);
-  } else {
   }
 });
 
-wolfSouth.addEventListener("click", () => {
-  console.log("No south wolf!");
-  tripsTaken.innerHTML += "* ";
-  wolfSouth.innerHTML = "";
-  wolfNorth.innerHTML = `<img src="./images/wolf-1.svg" />`;
-  if (goatSouth.innerHTML && pumpkinSouth.innerHTML != "") {
-    return alert(`GAME OVER:pumpkin eaten by the goat!`);
-  } else {
-  }
-});
-
-goatSouth.addEventListener("click", () => {
-  console.log("Goat has gone!");
-  tripsTaken.innerHTML += "* ";
-  goatSouth.innerHTML = "";
-  return (goatNorth.innerHTML = `<img src="./images/sheep.svg" />`);
-});
-
+// When pumpkin is on the South Bank
 pumpkinSouth.addEventListener("click", () => {
   console.log("pumpkin has gone!");
   tripsTaken.innerHTML += "* ";
   pumpkinSouth.innerHTML = "";
   pumpkinNorth.innerHTML = `<img src="./images/pumpkin-1.svg"/>`;
-  if (goatSouth.innerHTML && wolfSouth.innerHTML != "") {
+  if (checkPuzzleSolved()) {
+    return alert("Congratulations: you solved it!");
+  }
+  if (goatNorth.innerHTML != "" && wolfSouth.innerHTML != "") {
     return alert(`GAME OVER:goat eaten by the wolf!`);
-  } else {
   }
 });
 
