@@ -44,11 +44,15 @@ boatNorth.addEventListener("click", () => {
   if (checkPuzzleSolved()) {
     return alert("🎉 Congratulations: you solved it!");
   }
-  // if (goatNorth.innerHTML != "" && pumpkinNorth.innerHTML != "") {
-  //   return alert("🛑 GAME OVER:🎃 eaten by the 🐐!");
-  // } else if (goatNorth.innerHTML != "" && wolfNorth.innerHTML != "") {
-  //   return alert("🛑 GAME OVER: 🐐 eaten by the 🐺");
-  // }
+  if (
+    goatNorth.innerHTML != "" &&
+    pumpkinNorth.innerHTML != "" &&
+    wolfNorth.innerHTML != ""
+  ) {
+    return alert(
+      "🛑 GAME OVER:🎃 eaten by the 🐐 and then 🐐 eaten by the 🐺!"
+    );
+  }
   if (tripsTaken.innerHTML >= "* * * * * * * *") {
     return alert("⛔️ GAME OVER: exceeded 7 trips!");
   }
